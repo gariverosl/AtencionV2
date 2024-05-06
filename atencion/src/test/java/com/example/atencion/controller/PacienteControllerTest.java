@@ -57,8 +57,8 @@ public class PacienteControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/paciente"))
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(2)))
-        .andExpect(MockMvcResultMatchers.jsonPath("$[0].nombre", Matchers.is("test1")))
-        .andExpect(MockMvcResultMatchers.jsonPath("$[1].nombre", Matchers.is("test2")));
+        .andExpect(MockMvcResultMatchers.jsonPath("$    ", Matchers.hasSize(2)))
+        .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.pacienteList[0].nombre", Matchers.is("test1")))
+        .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.pacienteList[1].nombre", Matchers.is("test2")));
     }
 }
